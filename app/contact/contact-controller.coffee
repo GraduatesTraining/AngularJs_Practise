@@ -11,6 +11,7 @@ class ContactCtrl
   @$inject=['CommentsFactory']
   constructor: (CommentsFactory) ->
     @ctrlName = 'ContactCtrl'
+    @counter=0
     @comments=[]
     @form={}
     CommentsFactory.getComments().then (resp) =>
@@ -18,7 +19,7 @@ class ContactCtrl
     @submit = () ->
       @comments.push @form
       CommentsFactory.putComment(@comments).then ->
-        alert "Comment added succesfylly"
+        alert "Comment added succesfully"
       @form = {}
       
 angular

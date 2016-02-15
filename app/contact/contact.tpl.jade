@@ -1,11 +1,11 @@
 .callout.callout-info
     h2.
-      Contact
+      Your opinion counts
 .row
   .col-md-6.col-x6-12
     .box.box-solid.box-primary
         .box-header
-            h3 Contact Us
+            h3 Leave your opinion
         .box-body
             form.contact-form(name="contactForm", ng-submit="contactForm.$valid && contact.submit()")
                 .form-group(ng-class="{ ngValid: contactForm.name.$valid && contactForm.name.$dirty, ngInvalid: !contactForm.name.$valid && contactForm.name.$dirty}")
@@ -34,7 +34,7 @@
       .box-header
         h3 Comments
       .box-body
-        .col-md-3.col-x6-12(ng-repeat="comment in contact.comments")
+        .col-md-4.col-x6-12(ng-repeat="comment in contact.comments")
           .box.box-solid.box-primary
             .box-header
               h4
