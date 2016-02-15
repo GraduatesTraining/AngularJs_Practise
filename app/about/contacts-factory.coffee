@@ -13,15 +13,11 @@ angular
     new class Contacts
       constructor: ->
         @url = "https://awesomeangularjs.firebaseio.com/contacts.json"
-        @getContacts()
-        
       getContacts: ->
         request = $http.get @url
         request
-          .success (result) =>
-            @contacts = result
-          .error (err) =>
-            @contacts = {}
+          .success (result) ->
+            result
+          .error (err) ->
             throw Error "Error reading contacts"
-
   ]
