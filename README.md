@@ -18,3 +18,6 @@
 - Run `gulp webdriverUpdate` to download Selenium server standalone and Chrome driver for e2e testing
 - Run `gulp e2eTest` to run e2e tests via Protractor
  - **A localhost must be running** - `gulp dev`
+ 
+ ## Services model
+ I've followed the services model for build factories referred in this page: http://benhollis.net/blog/2014/01/17/cleanly-declaring-angularjs-services-with-coffeescript/
