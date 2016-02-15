@@ -8,13 +8,17 @@
 
 ###
 class ContactCtrl
-  @$inject=['$http']
-  constructor: ->
+  @$inject=['CommentsFactory']
+  constructor: (CommentsFactory) ->
     @ctrlName = 'ContactCtrl'
     @comments=[]
     @form={}
+    CommentsFactory.getComments().then (resp) =>
+      @comments = resp.data
     @submit = () ->
       @comments.push @form
+      CommentsFactory.putComment(@comments).then =>
+        alert "Comment added succesfylly"
       @form = {}
       
 angular
