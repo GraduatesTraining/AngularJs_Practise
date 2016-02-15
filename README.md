@@ -1,6 +1,7 @@
 # prueba
 
 *Generated with [ng-poly](https://github.com/dustinspecker/generator-ng-poly/tree/v0.11.5) version 0.11.5*
+Ng-poly is an AngularJs project generator that supports Jade, Coffeescript and any other stuff.
 
 ## Setup
 1. Install [Node.js](http://nodejs.org/)
