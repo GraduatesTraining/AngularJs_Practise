@@ -13,10 +13,11 @@ class AboutCtrl
   @$inject = ['ContactsFactory']
   constructor: (ContactsFactory) ->
     @ctrlName = 'AboutCtrl'
-    @contacts = {}
-    ContactsFactory.getContacts().then (data) =>
-      @contacts = data
-      console.log @contacts
+    ContactsFactory.getContacts().then (resp) =>
+      @contacts = resp.data
+    
+    
+    
 angular
   .module('about')
   .controller 'AboutCtrl', AboutCtrl

@@ -14,15 +14,14 @@ angular
       constructor: ->
         @url = "https://awesomeangularjs.firebaseio.com/contacts.json"
         @getContacts()
-    
+        
       getContacts: ->
         request = $http.get @url
         request
           .success (result) =>
-            @contacts = result.data
+            @contacts = result
           .error (err) =>
             @contacts = {}
             throw Error "Error reading contacts"
-          
 
   ]

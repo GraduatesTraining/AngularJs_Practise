@@ -1,2 +1,15 @@
-h2 About
-p {{about.ctrlName}}
+.row
+  .col-md-12
+    .callout.callout-primary
+      h2 About
+.row
+  .col-12
+    .row
+      .col-md-6.col-xs-12(ng-repeat="contact in About.contacts")
+        .box.box-solid.box-primary
+          .box-header
+            h3 {{contact.name}}
+          .box-body
+            ul
+              li Telephone: {{contact.telephone}}
+              li City: {{contact.city}}
