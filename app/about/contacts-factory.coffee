@@ -22,7 +22,7 @@ angular
             @contacts = result.data
           .error (err) =>
             @contacts = {}
-            throw "Error reading contacts"
+            throw Error "Error reading contacts"
           
 
   ]
