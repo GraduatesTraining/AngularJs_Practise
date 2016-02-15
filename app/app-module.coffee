@@ -11,6 +11,5 @@ angular
     'ui.bootstrap',
     'home',
     'about',
-    'contact',
-    'firebase'
+    'contact'
   ]
