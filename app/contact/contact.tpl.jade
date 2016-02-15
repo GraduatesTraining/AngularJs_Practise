@@ -1,0 +1,23 @@
+.callout.callout-info
+    h2.
+      Contact
+.row
+  .col-md-6.col-x6-12
+    .box.box-solid.box-primary
+        .box-header
+            h3 Contact Us
+        .box-body
+            form.contact-form(name="contactForm")
+                .form-group(ng-class="{ ngValid: contactForm.name.$valid && contactForm.name.$dirty, ngInvalid: !contactForm.name.$valid && contactForm.name.$dirty}")
+                    label.control-label Name
+                    input.form-control(type='name', placeholder='Name', name='name', ng-model="ContactCtrl.contact.name")
+                .form-group(ng-class="{ ngValid: contactForm.email.$valid && contactForm.email.$dirty, ngInvalid: !contactForm.email.$valid && contactForm.email.$dirty}")
+                    label.control-label Email
+                    input.form-control(type='email', placeholder='Email', name='email', ng-model="ContactCtrl.contact.email")
+  .col-md-6.col-x6-12
+    .box.box-solid.box-primary
+        .box-header
+            h3 Preview
+        .box-body
+            p Name: {{ContactCtrl.contact.name}}
+            p Email: {{ContactCtrl.contact.email}}
