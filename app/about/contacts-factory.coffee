@@ -17,8 +17,12 @@ angular
     
       getContacts: ->
         request = $http.get @url
-        request.then (result) =>
-          @contacts = result.data
+        request
+          .success (result) =>
+            @contacts = result.data
+          .error (err) =>
+            @contacts = {}
+            throw "Error reading contacts"
           
 
   ]
