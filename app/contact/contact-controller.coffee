@@ -17,7 +17,7 @@ class ContactCtrl
       @comments = resp.data
     @submit = () ->
       @comments.push @form
-      CommentsFactory.putComment(@comments).then =>
+      CommentsFactory.putComment(@comments).then ->
         alert "Comment added succesfylly"
       @form = {}
       
