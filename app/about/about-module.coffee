@@ -8,6 +8,5 @@
 ###
 angular
   .module 'about', [
-    'ui.router',
-    'firebase'
+    'ui.router'
   ]
