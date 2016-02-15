@@ -20,7 +20,6 @@ angular
             result
           .error (err) ->
             throw Error "Error retrieving comments"
-            
       putComment:(data) ->
         request = $http.put @url, data
         request
