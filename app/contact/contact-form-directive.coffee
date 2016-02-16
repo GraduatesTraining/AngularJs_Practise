@@ -20,7 +20,7 @@ class ContactFormDirective
   constructor: (CommentsFactory) ->
     return {
       restrict: 'AE'
-      templateUrl: 'contact/contact-form-directive-directive.tpl.html'
+      templateUrl: 'contact/contact-form-directive.tpl.html'
       replace: false
       scope: false
      
