@@ -5,7 +5,7 @@ angular
   .config ($stateProvider) ->
     $stateProvider
       .state 'contact',
-        url: '/contact'
-        templateUrl: 'contact/contact.tpl.html'
+        url: '/contact/'
+        templateUrl: 'contact/template/contact.tpl.html'
         controller: 'ContactCtrl'
         controllerAs: 'contact'
