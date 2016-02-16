@@ -5,7 +5,7 @@ describe 'contactFormDirective', ->
   scope = undefined
   element = undefined
 
-  beforeEach module('contact', 'contact/contact-form-directive-directive.tpl.html')
+  beforeEach module('contact', 'contact/contact-form-directive.tpl.html')
 
   beforeEach inject ($compile, $rootScope) ->
     scope = $rootScope.$new()
