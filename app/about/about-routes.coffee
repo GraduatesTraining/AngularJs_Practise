@@ -6,6 +6,6 @@ angular
     $stateProvider
       .state 'about',
         url: '/about'
-        templateUrl: 'about/about.tpl.html'
+        templateUrl: 'about/template/about.tpl.html'
         controller: 'AboutCtrl'
         controllerAs: 'About'
