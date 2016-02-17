@@ -47,8 +47,6 @@ class ContactCtrl
       ###
       CommentsFactory.putComments(@comments).then ->
         alert "Thanks for the feedback!"
-      console.log @comments[id].userVote
-
 angular
   .module('contact')
   .controller 'ContactCtrl', ContactCtrl
