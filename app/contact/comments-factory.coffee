@@ -13,15 +13,22 @@ angular
     new class Comments
       constructor: ->
         @url = "https://awesomeangularjs.firebaseio.com/contactForm.json"
+        @getComments()
       getComments: ->
         request = $http.get @url
+        request
+          .then (result) =>
+            @comments=result.data
+      putComments:(data) ->
+        request = $http.put @url, data
         request
           .success (result) ->
             result
           .error (err) ->
-            throw Error "Error retrieving comments"
-      putComments:(data) ->
-        request = $http.put @url, data
+            throw Error "Error adding comment"
+      putComment:(item) ->
+        @comments.push item
+        request = $http.put @url, @comments
         request
           .success (result) ->
             result

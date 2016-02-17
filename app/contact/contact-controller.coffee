@@ -47,10 +47,7 @@ class ContactCtrl
       ###
       CommentsFactory.putComments(@comments).then ->
         alert "Thanks for the feedback!"
-<<<<<<< HEAD
-      console.log CommentsFactory
-=======
->>>>>>> 69fcd6f8b741b3e74281df3d3078fe0889925510
+
 angular
   .module('contact')
   .controller 'ContactCtrl', ContactCtrl

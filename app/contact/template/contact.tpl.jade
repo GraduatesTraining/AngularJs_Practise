@@ -49,7 +49,6 @@
                 .col-xs-6
                   a(href="mailto:{{comment.email}}") {{comment.name}}
                 .col-xs-6
-                  vote-form(data="contact")
                   form(name="votesForm", ng-submit="contact.submitVote(comment)")
                     .input-group
                       -var i = 5
