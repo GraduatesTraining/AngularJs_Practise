@@ -7,27 +7,6 @@
         .box-header
             h3 Leave your opinion
         .box-body
-          //
-                form.contact-form(name="contactForm", ng-submit="contactForm.$valid && contact.submit()")
-                    .form-group(ng-class="{ ngValid: contactForm.name.$valid && contactForm.name.$dirty, ngInvalid: !contactForm.name.$valid && contactForm.name.$dirty}")
-                    label.control-label Name
-                    .input-group
-                        span.input-group-addon
-                        i.fa.fa-users 
-                        input.form-control(type='name', placeholder='Name', name='name', ng-model="contact.form.name", required)
-                    .form-group(ng-class="{ ngValid: contactForm.email.$valid && contactForm.email.$dirty, ngInvalid: !contactForm.email.$valid && contactForm.email.$dirty}")
-                        label.control-label Email
-                        .input-group
-                        span.input-group-addon
-                            i.fa.fa-envelope
-                        input.form-control(type='email', placeholder='Email', name='email', ng-model="contact.form.email", required)
-                    .form-group(ng-class="{ ngValid: contactForm.comment.$valid && contactForm.comment.$dirty, ngInvalid: !contactForm.comment.$valid && contactForm.comment.$dirty}")
-                        label.control-label Comment
-                        .input-group
-                        span.input-group-addon
-                            i.fa.fa-comments
-                        textarea.form-control(placeholder='Place your comment here', name='comment', ng-model="contact.form.comment", rows="3", required)
-                    input.btn.btn-primary(type="submit", value="Send")
           contact-form-directive
   .col-md-6.col-x6-12
     .box.box-solid.box-primary
@@ -39,15 +18,28 @@
             p(style="word-break: break-all;") Comment: {{contact.form.comment}}
 
 .row
-  .col-md-12.col-x6-12
+  .col-md-12.col-xs-12
     .box.box-solid.box-primary
       .box-header
         h3 Comments
       .box-body
-        .col-md-4.col-x6-12(ng-repeat="comment in contact.comments")
+        .col-md-6.col-xs-12(ng-repeat="comment in contact.comments | orderBy: '-average'")
           .box.box-solid.box-primary
             .box-header
               h4
-                a(href="mailto:{{comment.email}}") {{comment.name}}
+                .col-xs-6
+                  a(href="mailto:{{comment.email}}") {{comment.name}}
+                .col-xs-6
+                  form(name="votesForm", ng-submit="contact.submitVote(comment)")
+                    .input-group
+                      select.form-control(style="float:right;width: 35%;", ng-model="comment.userVote")
+                        option(value=5) 5
+                        option(value=4) 4
+                        option(value=3) 3
+                        option(value=2) 2
+                        option(value=1) 1
+                      span.input-group-btn
+                        input.btn.btn-warning(type='submit', value="Vote")
             .box-body
+              p Val.:{{comment.average.toFixed(2)}} in {{comment.votes}} votes
               p {{comment.comment}}
