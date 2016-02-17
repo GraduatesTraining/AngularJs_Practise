@@ -51,12 +51,10 @@
                 .col-xs-6
                   form(name="votesForm", ng-submit="contact.submitVote(comment)")
                     .input-group
-                      select.form-control(style="float:right;width: 35%;", ng-model="comment.userVote")
-                        option(value=5) 5
-                        option(value=4) 4
-                        option(value=3) 3
-                        option(value=2) 2
-                        option(value=1) 1
+                      -var i=5
+                      select.form-control(style="float:rightwidth: 35%;", ng-model="comment.userVote")
+                        while i > 0
+                          option(value="#{i}") #{i--}
                       span.input-group-btn
                         input.btn.btn-warning(type='submit', value="Vote")
             .box-body

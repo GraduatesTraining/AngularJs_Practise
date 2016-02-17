@@ -19,7 +19,7 @@ class ContactCtrl
       @comments.push @form
       @form.votes=0
       @form.average=0
-      CommentsFactory.putComment(@comments).then ->
+      CommentsFactory.putComments(@comments).then ->
         alert "Comment added succesfully"
       @form = {}
     @submitVote = (item) ->
@@ -45,9 +45,9 @@ class ContactCtrl
       ###
         Pushing the results on the "database"
       ###
-      CommentsFactory.putComment(@comments).then ->
+      CommentsFactory.putComments(@comments).then ->
         alert "Thanks for the feedback!"
-
+      console.log @comments[id].userVote
 
 angular
   .module('contact')
