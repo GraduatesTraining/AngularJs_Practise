@@ -14,12 +14,12 @@ class ContactCtrl
     @comments=[]
     @form={}
     CommentsFactory.getComments().then (resp) =>
-      @comments = resp.data
+      @comments = resp
+    console.log CommentsFactory
     @submit = () ->
-      @comments.push @form
       @form.votes=0
       @form.average=0
-      CommentsFactory.putComments(@comments).then ->
+      CommentsFactory.putComment(@form).then ->
         alert "Comment added succesfully"
       @form = {}
     @submitVote = (item) ->
@@ -47,8 +47,7 @@ class ContactCtrl
       ###
       CommentsFactory.putComments(@comments).then ->
         alert "Thanks for the feedback!"
-      console.log @comments[id].userVote
-
+      console.log CommentsFactory
 angular
   .module('contact')
   .controller 'ContactCtrl', ContactCtrl
