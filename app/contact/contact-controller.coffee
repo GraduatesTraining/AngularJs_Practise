@@ -15,7 +15,6 @@ class ContactCtrl
     @form={}
     CommentsFactory.getComments().then (resp) =>
       @comments = resp
-    console.log CommentsFactory
     @submit = () ->
       @form.votes=0
       @form.average=0
