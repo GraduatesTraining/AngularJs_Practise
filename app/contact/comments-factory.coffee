@@ -34,4 +34,15 @@ angular
             result
           .error (err) ->
             throw Error "Error adding comment"
+      updateVotes:(item) ->
+        id = @comments.indexOf item
+        @comments[id]=item
+        request = $http.put @url, @comments
+        request
+          .success (result) ->
+            result
+          .error (err) ->
+            throw Error "Error adding comment"
+        
+        
   ]

@@ -23,28 +23,23 @@ class ContactCtrl
       @form = {}
     @submitVote = (item) ->
       ###
-        Taking real id in array of item, because with orderBy i'm losing
-        the true index of comments array
-      ###
-      id = @comments.indexOf item
-      ###
         I was trying to do it in 1 line, but coffee compiler didn't let me
         because of line length.
         Just adding the comment value, and recalculating the new average
         valoration
       ###
-      total=@comments[id].average*@comments[id].votes++
-      total=(total+parseInt(@comments[id].userVote))/@comments[id].votes
-      @comments[id].average=total
+      total=item.average*item.votes++
+      total=(total+parseInt(item.userVote))/item.votes
+      item.average=total
       ###
         I delete this property because i don't need it more by the moment,
         and don't want to save it in the "database"
       ###
-      delete @comments[id].userVote
+      delete item.userVote
       ###
         Pushing the results on the "database"
       ###
-      CommentsFactory.putComments(@comments).then ->
+      CommentsFactory.updateVotes(item).then ->
         alert "Thanks for the feedback!"
 
 angular
