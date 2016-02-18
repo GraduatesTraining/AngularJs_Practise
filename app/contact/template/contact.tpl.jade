@@ -42,7 +42,7 @@
       .box-header
         h3 Comments
       .box-body
-        .col-md-6.col-xs-12(ng-repeat="comment in contact.CommentsFactory.comments | orderBy: '-average'")
+        .col-md-6.col-xs-12(ng-repeat="comment in contact.CommentsFactory.comments | orderBy: ['-average','+votes']")
           .box.box-solid.box-primary
             .box-header
               h4
