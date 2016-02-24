@@ -8,19 +8,37 @@
 
 ###
 class ContactCtrl
-  @$inject=['CommentsFactory']
-  constructor: (@CommentsFactory) ->
+  @$inject=['CommentsFactory', '$mdDialog', '$mdMedia']
+  constructor: (@CommentsFactory, @$mdDialog, @$mdMedia) ->
     @ctrlName = 'ContactCtrl'
     @form={}
     @submit = submit
     @submitVote = submitVote
-  submit = () ->
+    @customFullscreen = @$mdMedia('xs') or @$mdMedia('sm')
+    @DialogController = DialogController
+  DialogController = (@$mdDialog)->
+    @hide = () =>
+      @$mdDialog.hide()
+    @cancel = () =>
+      @$mdDialog.cancel()
+    @answer = () =>
+      @mdDialog.hide()
+  submit = (ev) ->
     @form.votes=0
     @form.average=0
-    @CommentsFactory.putComment(@form).then ->
-      alert "Comment added succesfully"
+    @CommentsFactory.putComment(@form).then =>
+      @$mdDialog.show(
+        @$mdDialog.alert()
+          .parent(angular.element(document.querySelector('#popupContainer')))
+          .clickOutsideToClose(true)
+          .title('Bandera')
+          .textContent('Commentary succesfully sent.')
+          .ariaLabel('Alert Dialog Demo')
+          .ok('Got it!')
+          .targetEvent(ev)
+      )
     @form = {}
-  submitVote = (item) ->
+  submitVote = (item, ev) ->
     ###
       I was trying to do it in 1 line, but coffee compiler didn't let me
       because of line length.
@@ -38,9 +56,17 @@ class ContactCtrl
     ###
       Pushing the results on the "database"
     ###
-    @CommentsFactory.updateVotes(item).then ->
-      alert "Thanks for the feedback!"
-console.log ContactCtrl
+    @CommentsFactory.updateVotes(item).then =>
+      @$mdDialog.show(
+        @$mdDialog.alert()
+          .parent(angular.element(document.querySelector('#popupContainer')))
+          .clickOutsideToClose(true)
+          .title('Bandera')
+          .textContent('Thanks for the feedback!')
+          .ariaLabel('Alert Dialog Demo')
+          .ok('Got it!')
+          .targetEvent(ev)
+      )
 angular
   .module('contact')
   .controller 'ContactCtrl', ContactCtrl

@@ -8,5 +8,6 @@
 ###
 angular
   .module 'contact', [
-    'ui.router'
+    'ui.router',
+    'ngMaterial'
   ]
