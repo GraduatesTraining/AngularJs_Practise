@@ -9,5 +9,6 @@
 angular
   .module 'contact', [
     'ui.router',
-    'ngMaterial'
+    'ngMaterial',
+    'ngMessages'
   ]
